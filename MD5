@@ -1,6 +1,6 @@
-2e99160d3fdd5ff89d80cf69fca4a829 *DESCRIPTION
+0f3249a3eb0abe17fd114b7845482d65 *DESCRIPTION
 18fca2e3611a1d45bb4515180aa970b3 *NAMESPACE
-8e6e9887033e8b796409ce2c21fff11b *NEWS
+7118206c42258fc10f499942f6f090b7 *NEWS
 014c5333cbf8f040896aba930a4c75dd *R/read.R
 19d426fe9c35f01df9cd04767efc33b4 *R/write.R
 6e18e6861c92628d952925e22d812c1a *configure.win
@@ -8,7 +8,7 @@
 32b3eab4e404f9c9790935aa863e09aa *man/readJPEG.Rd
 cd23e9c533cae81a5a3107e712cd8e0c *man/writeJPEG.Rd
 a0c542696d4f975a4f61346ead2bfd98 *src/Makevars
-9d09d26ef2ec986ff6fb65cb1d1854d6 *src/Makevars.win
+04e7f64949beabbcabab1905426c5171 *src/Makevars.win
 bf091b2575217fd8054b15f788947b20 *src/jcompat.h
 8c7964427115a9387740fa2b6dc7bdfc *src/read.c
 3fa194e7472100a0910d8dafaf0a4bc3 *src/rjcommon.h
