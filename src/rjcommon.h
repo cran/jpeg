@@ -7,27 +7,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/* some jpeg versions re-define TRUE/FALSE .. bad bad so we have to tuck those away */
-#ifdef TRUE
-#undef TRUE
-#endif
-#ifdef FALSE
-#undef FALSE
-#endif
-#define TRUE JPEG_TRUE
-#define FALSE JPEG_FALSE
+
 #include <jpeglib.h>
-#undef TRUE
-#undef FALSE
+
+/* R defines TRUE/FALSE enum unconditionally, undefining TRUE/FALSE in the process.
+   jpeg may or may not define boolean with TRUE/FALSE but it also does undefine 
+   it so there is no good way around. Since we know what R is doing, the only way
+   to solve this is to prevent R from defining it */
+#define R_EXT_BOOLEAN_H_ /* prevent inclusion of R_ext/Boolean.h */
+/* define the enum with R_ prefix */
+typedef enum { R_FALSE = 0, R_TRUE, } Rboolean;
+/* R headers don't use TRUE/FALSE so we shoudl notneed to worry about those */
+
+#define USE_RINTERNALS 1
+#define R_NO_REMAP 1
+#include <Rinternals.h>
+/* for R_RGB / R_RGBA */
+#include <R_ext/GraphicsEngine.h>
 
 #if (BITS_IN_JSAMPLE != 8)
 #error "Sorry, only 8-bit libjpeg is supported"
 #endif
-
-#define USE_RINTERNALS 1
-#include <Rinternals.h>
-/* for R_RGB / R_RGBA */
-#include <R_ext/GraphicsEngine.h>
 
 METHODDEF(void)
 Rjpeg_error_exit(j_common_ptr cinfo)
